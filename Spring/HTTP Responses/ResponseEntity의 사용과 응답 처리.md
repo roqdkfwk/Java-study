@@ -24,8 +24,10 @@ return ResponseEntity.ok().body("문자열");
 
 `ok()`나 `body()`는 제네릭 타입으로 설계되어 있어 문자열 외에도 **객체, 컬렉션 등의 다양한 변수를 사용**할 수 있으며 **두 메서드의 동작은 동일**하다.
 
-### ResponseEntity.ok()와 ResponseEntity.ok().build()의 차이
 
+
+### ResponseEntity.ok()와 ResponseEntity.ok().build()의 차이
+---
 **ResponseEntity.ok()**
 
 ```java
