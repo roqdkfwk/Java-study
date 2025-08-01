@@ -141,23 +141,26 @@ public static Singleton getInstance() {
 ### ⑤ Initialization-on-Demand Holder (정적 내부 클래스) ⭐
 
 ```java
-public class S {
-    private S() {}
+public class Singleton {
+    private Singleton() {}
     
+    // static 내부 클래스 이용
+    // Holder로 만들어서 클래스가 메모리에 로드되지 않고 getInstance 메서드가 호출되어야 로드된다.
     private static class Holder {
-        private static final S I = new S();
+        private static final Singleton INSTANCE = new Singleton();
     }
     
-    public static S get() { return Holder.I; }
+    public static Singleton getInstance() { 
+        return Holder.INSTANCE;
+    }
 }
 ```
 
-**장점**
+**특징**
+- 권장되는 두 개의 방법 중 하나이다.
 - ✔ Lazy + 100% Thread-safe (JVM class-loading 보장)
 - ✔ 락 없음
-
-**주요 문제점**
-- (사실상 문제 거의 없음)
+- 사실상 문제 거의 없음
 
 **해결·보완 포인트**
 - **가장 많이 권장되는 일반적 구현**
