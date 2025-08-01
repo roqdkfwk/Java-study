@@ -35,6 +35,8 @@ public class Singleton {
   - 만약 리소스가 큰 객체인 경우 메모리 낭비가 발생
 - ❌ 예외 처리 곤란
 
+<br/>
+
 **해결·보완 포인트**
 - 리소스가 가벼운 경우에 사용하면 큰 문제가 발생하지 않는다.
 
@@ -72,6 +74,8 @@ public class Singleton {
   - 두 번째 스레드가 if문에 도착하는 경우, INSTANCE가 아직 null인 상태이므로 두 번째 스레드도 if문을 통과한다.
   - 따라서 두 개의 스레드가 각각 INSTANCE를 초기화한다. 
 
+<br/>
+
 **해결·보완 포인트**
 - ③, ④, ⑤ 방식으로 보완
 
@@ -96,12 +100,14 @@ public class Singleton {
 ```
 
 **특징**
-- ✔ `synchronized` 키워드를 사용해서 메서드에 스레드가 하나씩만 접근할 수 있도록 설정 (동기화) 
-  - → Thread-safe
+- ✔ `synchronized` 키워드를 사용해서 메서드에 스레드가 하나씩만 접근할 수 있도록 설정 (동기화)  
+  → Thread-safe
   
 
-- ❌ 여러 개의 모듈에서 객체를 가져올 때, `synchronized` 메서드를 매번 호출하여 동기화 처리 작업에 오버헤드 발생
-  - → 성능 하락
+- ❌ 여러 개의 모듈에서 객체를 가져올 때, `synchronized` 메서드를 매번 호출하여 동기화 처리 작업에 오버헤드 발생   
+  → 성능 하락
+
+<br/>
 
 **해결·보완 포인트**
 - 성능이 중요하지 않은 초기화용 객체에만 사용
@@ -111,15 +117,17 @@ public class Singleton {
 ### ④ Double-Checked Locking (DCL)
 
 ```java
-private static volatile Singleton INSTANCE;
-
-public static Singleton getInstance() {
-    if (INSTANCE == null) {
-        synchronized (Singleton.class) {
-            if (INSTANCE == null) INSTANCE = new Singleton();
+public class Singleton {
+    private static volatile Singleton INSTANCE;
+    
+    public static Singleton getInstance() {
+        if (INSTANCE == null) {
+            synchronized (Singleton.class) {
+                if (INSTANCE == null) INSTANCE = new Singleton();
+            }
         }
+        return INSTANCE;
     }
-    return INSTANCE;
 }
 ```
 
@@ -127,11 +135,14 @@ public static Singleton getInstance() {
 - ✔ 첫 호출만 lock을 사용
   - 이후 호출은 lock을 사용하지 않는다.
 - ✔ 이때 인스턴스 필드에 `volatile` 키워드를 붙여야만 I/O 불일치 문제를 해결할 수 있다.
+  - volatile이 뭐지?
   
 
 - ❌ 코드 복잡
 - ❌ `volatile` 누락 시 재주문 문제
 - ❌ JVM에 따라서 여전히 스레드 세이프 하지 않는 경우가 발생할 수 있다.
+
+<br/>
 
 **해결·보완 포인트**
 - JDK 5 이상, `volatile` 필수
@@ -158,9 +169,29 @@ public class Singleton {
 
 **특징**
 - 권장되는 두 개의 방법 중 하나이다.
-- ✔ Lazy + 100% Thread-safe (JVM class-loading 보장)
+- ⭐⭐⭐ Lazy + 100% Thread-safe (JVM class-loading 보장)
 - ✔ 락 없음
 - 사실상 문제 거의 없음
+
+<br/>
+
+#### ⭐⭐⭐100% Thread-safe한 이유  
+- 위의 방식이 thread-safe할 수 있는 이유는 **JVM의 클래스 로딩과 초기화 규칙** 덕분이다.
+  - 클래스의 초기화는 단 한 번만 이루어지고, 이 과정은 thread-safe하다.
+  - 이에 따라 `new Singleton()`으로 객체를 초기화하는 과정은 처음 초기화된 이후에는 더 이상 발생하지 않는다. 
+  - JVM의 클래스 로딩 및 초기화 규칙(링크 달기)
+- Holder 패턴에서 `Holder` 클래스는 `getInstance()`메서드가 호출되며 **처음 참조되는 순간**에 로드된다.
+- 이때 JVM은 `Holder`의 static 필드 초기화를 단 한 번만, 동기화된 상태에서 수행한다.
+- 따라서 `INSTANCE`는 여러 스레드가 동시에 접근하더라도 중복 없이 생성된다.
+
+<br/>
+
+#### ❓ final의 사용 이유
+- `final` 키워드를 제거해도 `new Singleton()`를 통한 초기화는 한 번만 수행되는데 왜 `final` 키워드를 쓸까?
+- `final` 키워드를 사용하지 않으면 코드상에서 **재할당**이 가능하다.
+- 따라서 `final` 키워드를 사용하면 불변 객체로 만들면 코드 상에서 참조를 바꾸는 실수를 방지하여 불변 싱글톤을 보장할 수 있다.
+
+<br/>
 
 **해결·보완 포인트**
 - **가장 많이 권장되는 일반적 구현**
@@ -175,13 +206,14 @@ public enum Config {
 }
 ```
 
-**장점**
+**특징**
 - ✔ 리플렉션·직렬화·DCL 모두 안전
+  - 리플렉션이 뭐지❓
 - ✔ 코드 최단
-
-**주요 문제점**
 - ❌ 다른 클래스를 상속할 수 없음
 - ❌ 지속적인 핫-리로드 환경에서 enum 재정의 어려움
+
+<br/>
 
 **해결·보완 포인트**
 - 설정, 로그처럼 "절대 하나"인 객체에 적합
@@ -190,7 +222,8 @@ public enum Config {
 
 ## 3. Spring의 Singleton Scope
 
-**Spring 등 DI 컨테이너의 "singleton scope"**는 내부적으로 ⑤와 유사한 Holder 기법 + 동적 proxy로 관리하며, 테스트 격리·라이프사이클·클래스로더 문제를 프레임워크가 대신 해결한다.
+**Spring 등 DI 컨테이너의 "singleton scope"** 는 내부적으로 ⑤와 유사한 Holder 기법 + 동적 proxy로 관리하며,  
+테스트 격리·라이프사이클·클래스로더 문제를 프레임워크가 대신 해결한다.
 
 ---
 
@@ -207,15 +240,20 @@ public enum Config {
 
 ---
 
-## 5. 총정리 (한눈에)
+## 5. 정리
 
 1. **싱글톤은 "전역에서 단 1개"를 강제하는 생성 패턴**이다.
 
-2. 구현은 **Eager → Lazy(synchronized) → DCL → Holder → Enum** 순으로 진화해 왔으며, 최신 JVM에서는 **Holder (일반용)** 또는 **Enum (절대적 단일·보안 중요 객체용)** 이 가장 안전·간결하다.
 
+2. 구현은 **Eager → Lazy(synchronized) → DCL → Holder → Enum** 순으로 진화해 왔으며,  
+최신 JVM에서는 **Holder (일반용)** 또는 **Enum (절대적 단일·보안 중요 객체용)** 이 가장 안전·간결하다.
+
+   
 3. 주요 위험은 **동시성, 리플렉션, 직렬화, 클래스 로더, 테스트 격리** 다섯 가지이며, 각 구현마다 이를 해결·완화하는 기법이 다르다.
 
-4. **DI 프레임워크**를 사용할 수 있다면 "컨테이너-singleton 스코프"가 대부분의 문제(생성 시점, 라이프사이클, 테스트)를 대신 해결해 주므로, **직접 싱글톤을 구현할 일은 오히려 줄어드는 추세**다.
+
+4. **DI 프레임워크**를 사용할 수 있다면 "컨테이너-singleton 스코프"가 대부분의 문제(생성 시점, 라이프사이클, 테스트)를 대신 해결해 주므로,  
+**직접 싱글톤을 구현할 일은 오히려 줄어드는 추세**다.
 
 ---
 
