@@ -20,9 +20,10 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 | 주제명 | 분류 | 설명                                                       | 링크                                     |
 |--------|------|----------------------------------------------------------|----------------------------------------|
 | **Java Collection Framework** | 전체 구조 | JCF의 전체 구조와 List, Set, Queue, Map 인터페이스  <br/>및 구현체들의 분류 | [📖 이동](./Collections/Java%20Collection%20Framework%20개요.md) |
-| **Collection Interface** | 인터페이스 | 모든 컬렉션의 공통 메서드를 정의하는 최상위 인터페이스  <br/>(add, remove, contains 등) | [📖 이동](./Collections/Collection-Interface.md) |
-| **TreeSet** | Set | 정렬된 순서로 요소를 저장하는 Set 구현체  <br/>(이진탐색트리 기반, 자동 정렬)        | [📖 이동](./Collections/TreeSet.md)        |
-| **Iterator** | 인터페이스 | 컬렉션 순회를 위한 표준 인터페이스  <br/>(안전한 요소 제거, Fail-Fast 메커니즘)         | [📖 이동](./Collections/Iterator.md) |
+| **계층화된 Collections 구조** | 전체 관리 | 인터페이스와 구현체별로 계층화된 폴더 구조  <br/>및 학습 가이드 | [📖 이동](./Collections/README.md) |
+| **Collection Interface** | 인터페이스 | 모든 컬렉션의 공통 메서드를 정의하는 최상위 인터페이스  <br/>(add, remove, contains 등) | [📖 이동](./Collections/Core-Interfaces/Collection-Interface.md) |
+| **TreeSet** | Set | 정렬된 순서로 요소를 저장하는 Set 구현체  <br/>(이진탐색트리 기반, 자동 정렬)        | [📖 이동](./Collections/Set/TreeSet.md)        |
+| **Iterator** | 인터페이스 | 컬렉션 순회를 위한 표준 인터페이스  <br/>(안전한 요소 제거, Fail-Fast 메커니즘)         | [📖 이동](./Collections/Core-Interfaces/Iterator.md) |
 
 ### 🎨 Design Pattern
 자주 사용되는 디자인 패턴

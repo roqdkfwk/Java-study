@@ -11,13 +11,13 @@ Collection Interface는 Java Collection Framework의 핵심 인터페이스로, 
     ↙   ↑   ↘
  List  Queue  Set
 ```
+![Collection Interface 계층구조](./images/collection-interface.png)
+*Collection Interface의 계층 구조*
 
 - **Iterable**: 반복 가능한 객체를 나타내는 최상위 인터페이스
 - **Collection**: List, Set, Queue의 상속을 하는 실질적인 최상위 컬렉션 타입인터페이스
 - **List, Set, Queue**: Collection을 상속받는 하위 인터페이스들
 
-![Collection Interface 계층구조](./images/collection-interface.png)
-*Collection Interface의 계층 구조와 주요 메서드들*
 
 
 ## 🔧 주요 메서드
@@ -61,10 +61,13 @@ Collection Interface에서 제공하는 핵심 메서드
 
 ## ⚠️ 중요한 주의사항
 
-> **💡 Collection 인터페이스의 메서드들은 보편 요소(객체)에 대한 추가, 삭제, 탐색 등 다양한 기능으로 사용이 가능하지만,  
+> **💡 Collection 인터페이스의 메서드들은 보면 요소(객체)에 대한 추가, 삭제, 탐색은 다형성을 통해 사용이 가능하지만,  
 > 데이터를 get하는 메서드는 보이지 않는다.**
 > 
-> **왜냐하면 각 컬렉션 자료형마다 구현하는 자료 구조가 제각각이기 때문에 최상위 타입으로 조회하기 까다롭기 때문이다.**
+> **왜냐하면 각 컬렉션 자료형마다 구현하는 자료 구조가 제각각이기 때문에 최상위 타입으로 조회하기 까다롭기 때문이다.**  
+> 
+> 예를 들어, `ArrayList`나 `LinkedList`는 인덱스 기반 접근이므로 `get(index)`를 통해 `index`번째 요소를 가져온다는 개념으로  
+> 사용할 수 있지만, `HashSet`의 경우 값을 기반으로 확인하기 위해 `contains(value)`형태로 사용하므로 `get()`메서드가 필요없다.
 
 각 하위 인터페이스(List, Set, Queue)는 Collection Interface를 상속받아 자신만의 특성에 맞는 추가 메서드들을 정의한다.
 
