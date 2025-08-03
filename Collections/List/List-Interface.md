@@ -1,6 +1,36 @@
 # List Interface
 
-List Interface는 Collection Interface를 상속받는 인터페이스로, **순서가 있는 저장공간**을 제공하는 컬렉션을 구현하는데 사용한다.
+## 📁 목차
+
+1. [List 계층 구조](#-list-계층-구조)
+2. [List의 주요 특징](#-list의-주요-특징)
+   - [순서와 인덱스](#-순서와-인덱스)
+   - [중복 허용](#-중복-허용)
+   - [가변성 (Dynamic Sizing)](#-가변성-dynamic-sizing)
+   - [빈 공간 불허](#-빈-공간-불허)
+3. [List Interface 주요 메서드](#-list-interface-주요-메서드)
+   - [요소 추가](#-요소-추가)
+   - [요소 제거](#-요소-제거)
+   - [요소 접근 및 수정](#-요소-접근-및-수정)
+   - [요소 검색](#-요소-검색)
+   - [부분 리스트](#-부분-리스트)
+   - [반복자](#-반복자)
+   - [정렬](#-정렬)
+4. [주요 구현체들](#-주요-구현체들)
+   - [ArrayList](#arraylist)
+   - [LinkedList](#linkedlist)
+   - [Vector](#vector)
+   - [Stack](#stack)
+5. [사용 시나리오](#-사용-시나리오)
+   - [ArrayList 사용 권장](#arraylist-사용-권장)
+   - [LinkedList 사용 권장](#linkedlist-사용-권장)
+   - [Vector 사용 권장](#vector-사용-권장)
+   - [Stack 사용 권장](#stack-사용-권장)
+6. [관련 문서](#-관련-문서)
+
+---
+
+List Interface는 Collection Interface를 상속받는 인터페이스로, **순서가 있는 저장공간**을 제공하는 컬렉션을 구현하는데 사용합니다.
 
 ## 🏗️ List 계층 구조
 
