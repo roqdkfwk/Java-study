@@ -2,22 +2,23 @@
 
 ## 📖 TreeSet이란?
 
-**JCF(Java Collection Framework)**의 일부로, 정렬된 순서로 요소를 저장하는 `Set` 인터페이스의 구현체입니다.
+**JCF(Java Collection Framework)** 의 일부로, 정렬된 순서로 요소를 저장하는 `Set` 인터페이스의 구현체
 
-**이진탐색트리(Binary Search Tree)**의 구조로 되어있어, 데이터를 넣을 때 자동으로 정렬됩니다.
+**이진탐색트리(Binary Search Tree)** 의 구조로 되어있어, 데이터를 넣을 때 자동으로 정렬된다.
 
-일반적인 `Set`보다 데이터 추가, 삭제에는 시간이 오래 걸리지만 정렬되어 저장된다는 점 때문에 조회가 빠릅니다.
+일반적인 `Set`보다 데이터 추가, 삭제에는 시간이 오래 걸리지만 정렬되어 저장된다는 점 때문에 빠른 조회 성능을 갖는다.
 
-**기본 정렬은 오름차순 정렬**이며, 생성자의 매개변수로 `Comparator` 클래스를 구현하면 정렬 방법을 설정할 수 있습니다.
+**기본 정렬은 오름차순 정렬**이며, 생성자의 매개변수로 `Comparator` 클래스를 구현해서 정렬 방법을 설정할 수 있따.
 
 ---
 
 ## 🔍 TreeSet의 특징
 
 ### 1️⃣ 정렬된 순서 유지
-- `TreeSet`은 요소를 자동으로 **오름차순으로 정렬**합니다
-- 내부적으로 이진탐색트리, 그 중에서도 **레드-블랙 트리로 구현**되어 있습니다
-- `Comparator`를 사용하여 사용자가 정렬 순서를 정의할 수 있습니다
+- `TreeSet`은 요소를 자동으로 **오름차순으로 정렬**한다.
+- 내부적으로 이진탐색트리, 그 중에서도 **레드-블랙 트리로 구현**되어 있다.
+  - 레드-블랙 트리란?
+- `Comparator`를 사용하여 사용자가 정렬 순서를 정의할 수 있다.
 
 ```java
 TreeSet<Integer> set = new TreeSet<>(Comparator.reverseOrder());  // 내림차순으로 정렬
@@ -34,30 +35,30 @@ while (iter.hasNext()) {
 ```
 
 ### 2️⃣ 중복 불허
-- `Set` 인터페이스를 구현하므로, **중복된 요소를 허용하지 않습니다**
-- 이미 존재하는 요소를 추가하려고 하면, 추가 동작이 무시됩니다
+- `Set` 인터페이스를 구현하므로, **중복된 요소 허용 X**
+- 따라서 이미 존재하는 요소를 추가하는 경우 동작을 무시한다.
 
 ### 3️⃣ 빠른 검색, 추가, 제거
-- 요소 추가, 제거, 검색 등의 기본 연산의 시간 복잡도는 **`O(log n)`**입니다
+- 요소 추가, 제거, 검색 등의 기본 연산의 시간 복잡도는 **`O(log n)`**
 
 ---
 
 ## 📋 주요 메소드
 
-| 메서드 | 설명 | 시간복잡도 |
-|--------|------|-----------|
-| `boolean add(E e)` | 주어진 객체를 저장 후 성공하면 `true`, 중복 객체면 `false`를 반환 | `O(log n)` |
-| `boolean remove(Object o)` | 특정 요소(o)를 제거한다. 제거에 성공하면 `true`, 특정 요소가 존재하지 않으면 `false`를 반환 | `O(log n)` |
-| `boolean contains(Object o)` | 특정 요소(o)가 포함되어 있는지 확인한다. 특정 요소가 Set에 존재하면 `true`, 존재하지 않으면 `false`를 반환 | `O(log n)` |
-| `E first()` | Set에서 가장 작은 요소를 반환. Set이 비어 있으면 `NoSuchElementException`이 발생 | `O(log n)` |
-| `E last()` | Set에서 가장 큰 요소를 반환. Set이 비어 있으면 `NoSuchElementException`이 발생 | `O(log n)` |
-| `E pollFirst()` | Set에서 가장 작은 요소를 제거하고 반환. Set이 비어 있으면 `null`을 반환 | `O(log n)` |
-| `E pollLast()` | Set에서 가장 큰 요소를 제거하고 반환. Set이 비어 있으면 `null`을 반환 | `O(log n)` |
-| `NavigableSet<E> subSet(E fromElement, E toElement)` | 지정된 범위의 요소들을 `NavigableSet<E>`형태로 반환 | `O(log n)` + 범위 내 요소 개수 |
-| `NavigableSet<E> headSet(E toElement)` | 지정된 요소보다 작은 모든 요소들을 `NavigableSet<E>`형태로 반환 | `O(log n)` + 범위 내 요소 개수 |
-| `NavigableSet<E> tailSet(E fromElement)` | 지정된 요소보다 크거나 같은 모든 요소들을 `NavigableSet<E>`형태로 반환 | `O(log n)` + 범위 내 요소 개수 |
-| `int size()` | Set에 포함된 요소의 개수를 반환 | `O(1)` |
-| `void clear()` | Set에 포함된 모든 요소를 제거 | `O(n)` |
+| 메서드                                                     | 설명 | 시간복잡도 |
+|---------------------------------------------------------|------|-----------|
+| `boolean add(E e)`                                      | 주어진 객체를 저장 후 성공하면 `true`, 중복 객체면 `false`를 반환 | `O(log n)` |
+| `boolean remove(Object o)`                              | 특정 요소(o)를 제거한다. 제거에 성공하면 `true`,<br/>특정 요소가 존재하지 않으면 `false`를 반환 | `O(log n)` |
+| `boolean contains(Object o)`                            | 특정 요소(o)가 포함되어 있는지 확인한다.<br/>특정 요소가 Set에 존재하면 `true`, 존재하지 않으면 `false`를 반환 | `O(log n)` |
+| `E first()`                                             | Set에서 가장 작은 요소를 반환. Set이 비어 있으면<br/>`NoSuchElementException`이 발생 | `O(log n)` |
+| `E last()`                                              | Set에서 가장 큰 요소를 반환. Set이 비어 있으면<br/>`NoSuchElementException`이 발생 | `O(log n)` |
+| `E pollFirst()`                                         | Set에서 가장 작은 요소를 제거하고 반환. Set이 비어 있으면 `null`을 반환 | `O(log n)` |
+| `E pollLast()`                                          | Set에서 가장 큰 요소를 제거하고 반환. Set이 비어 있으면 `null`을 반환 | `O(log n)` |
+| `NavigableSet<E>`<br/>`subSet(E fromElement, E toElement)` | 지정된 범위의 요소들을 `NavigableSet<E>`형태로 반환 | `O(log n)`<br/>+ 범위 내 요소 개수 |
+| `NavigableSet<E>`<br/>`headSet(E toElement)`                  | 지정된 요소보다 작은 모든 요소들을 `NavigableSet<E>`형태로 반환 | `O(log n)`<br/>+ 범위 내 요소 개수 |
+| `NavigableSet<E> tailSet(E fromElement)`                | 지정된 요소보다 크거나 같은 모든 요소들을`NavigableSet<E>`형태로 반환 | `O(log n)`<br/>+ 범위 내 요소 개수 |
+| `int size()`                                            | Set에 포함된 요소의 개수를 반환 | `O(1)` |
+| `void clear()`                                          | Set에 포함된 모든 요소를 제거 | `O(n)` |
 
 ---
 
@@ -173,7 +174,7 @@ System.out.println(tailSet);  // [7, 9, 11, 13]
 ## ⚠️ 주의사항
 
 ### 1️⃣ Comparable 구현 필요
-TreeSet에 저장되는 객체는 `Comparable` 인터페이스를 구현하거나, `Comparator`를 제공해야 합니다.
+TreeSet에 저장되는 객체는 `Comparable` 인터페이스를 구현하거나, `Comparator`를 제공해야 한다.
 
 ```java
 // 에러 발생 - Comparable을 구현하지 않은 클래스
@@ -186,7 +187,7 @@ TreeSet<Person> set = new TreeSet<>();  // ClassCastException 발생 가능
 ```
 
 ### 2️⃣ null 값 허용하지 않음
-TreeSet은 null 값을 허용하지 않습니다.
+TreeSet은 null 값을 허용 X
 
 ```java
 TreeSet<String> set = new TreeSet<>();
@@ -194,7 +195,7 @@ set.add(null);  // NullPointerException 발생
 ```
 
 ### 3️⃣ 동기화되지 않음
-TreeSet은 스레드 안전하지 않습니다. 멀티스레드 환경에서는 동기화가 필요합니다.
+TreeSet은 스레드 안전하지 않으며, 멀티스레드 환경에서는 동기화가 필요
 
 ```java
 // 동기화된 TreeSet 생성
@@ -248,4 +249,4 @@ public class ScoreManager {
 }
 ```
 
-TreeSet은 **정렬과 중복 제거를 동시에 처리**해야 하는 상황에서 매우 유용한 자료구조입니다! 🚀
+TreeSet은 **정렬과 중복 제거를 동시에 처리**해야 하는 상황에서 유용한 자료구조이다.
