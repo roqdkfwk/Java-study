@@ -11,7 +11,7 @@ Collections/
 │   └── Map-Interface.md      📝 추가 예정
 ├── List/                     (List 인터페이스와 구현체)
 │   ├── List-Interface.md     ✅
-│   ├── ArrayList.md          📝 추가 예정
+│   ├── ArrayList.md          ✅
 │   ├── LinkedList.md         📝 추가 예정
 │   ├── Vector.md             📝 추가 예정
 │   └── Stack.md              📝 추가 예정
@@ -89,15 +89,15 @@ Collections/
 - ✅ **Iterator.md** - 컬렉션 순회 인터페이스
 - ✅ **Collection-Interface.md** - 컬렉션 공통 메서드 정의
 - ✅ **List-Interface.md** - 순서가 있는 컬렉션 인터페이스
+- ✅ **ArrayList.md** - 동적 배열 기반 List 구현체
 - ✅ **TreeSet.md** - 정렬된 Set 구현체
 
-## 📝 추가 예정 파일들 (총 18개)
+## 📝 추가 예정 파일들 (총 17개)
 
 ### Core-Interfaces (1개)
 - Map-Interface.md
 
-### List (4개)
-- ArrayList.md
+### List (3개)
 - LinkedList.md  
 - Vector.md
 - Stack.md
