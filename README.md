@@ -22,6 +22,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 | **Java Collection Framework** | 전체 구조 | JCF의 전체 구조와 List, Set, Queue, Map 인터페이스  <br/>및 구현체들의 분류 | [📖 이동](./Collections/Java%20Collection%20Framework%20개요.md) |
 | **계층화된 Collections 구조** | 전체 관리 | 인터페이스와 구현체별로 계층화된 폴더 구조  <br/>및 학습 가이드 | [📖 이동](./Collections/README.md) |
 | **Collection Interface** | 인터페이스 | 모든 컬렉션의 공통 메서드를 정의하는 최상위 인터페이스  <br/>(add, remove, contains 등) | [📖 이동](./Collections/Core-Interfaces/Collection-Interface.md) |
+| **List Interface** | 인터페이스 | 순서가 있고 중복을 허용하는 컬렉션 인터페이스  <br/>(인덱스 기반 접근, 가변 크기) | [📖 이동](./Collections/List/List-Interface.md) |
 | **TreeSet** | Set | 정렬된 순서로 요소를 저장하는 Set 구현체  <br/>(이진탐색트리 기반, 자동 정렬)        | [📖 이동](./Collections/Set/TreeSet.md)        |
 | **Iterator** | 인터페이스 | 컬렉션 순회를 위한 표준 인터페이스  <br/>(안전한 요소 제거, Fail-Fast 메커니즘)         | [📖 이동](./Collections/Core-Interfaces/Iterator.md) |
 
@@ -70,11 +71,12 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
   - [ ] 컴파일 언어 vs 인터프리터 언어
 
 - [x] **Collections Framework**
+  - [x] Java Collection Framework 개요
+  - [x] Collection Interface (공통 메서드)
+  - [x] List Interface (순서가 있는 컬렉션)
   - [x] TreeSet (정렬된 Set)
   - [x] Iterator (컬렉션 순회 인터페이스)
-  - [ ] HashMap vs TreeMap
-  - [ ] ArrayList vs LinkedList
-  - [ ] HashSet vs LinkedHashSet vs TreeSet
+  - [ ] 주요 구현체들 비교 및 선택 가이드
 
 - [ ] **Thread** (스레드)
   - [ ] Thread 생성과 실행
@@ -101,9 +103,15 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 ### 🚀 추가 학습 주제
 
 - [ ] **Java Collections Framework**
-  - [x] TreeSet
-  - [x] Iterator
-  - [ ] List, Set, Map 구현체들의 특징
+  - [x] Java Collection Framework 개요
+  - [x] Collection Interface (공통 메서드)
+  - [x] List Interface (순서가 있는 컬렉션)
+  - [x] TreeSet (정렬된 Set)
+  - [x] Iterator (컬렉션 순회 인터페이스)
+  - [ ] **List 구현체들**: ArrayList, LinkedList, Vector, Stack
+  - [ ] **Set 구현체들**: HashSet, LinkedHashSet, EnumSet
+  - [ ] **Queue 구현체들**: PriorityQueue, ArrayDeque
+  - [ ] **Map 구현체들**: HashMap, LinkedHashMap, TreeMap, Hashtable
   - [ ] ListIterator와 Spliterator
   - [ ] Collections 유틸리티 클래스
   - [ ] 동시성 컬렉션 (ConcurrentHashMap, etc.)
@@ -217,8 +225,20 @@ Java-study/
 │   │   └── Static과 Instance 멤버의 생명주기.md
 │   └── images/
 ├── Collections/
-│   ├── TreeSet.md
-│   └── Iterator.md
+│   ├── Java Collection Framework 개요.md
+│   ├── README.md
+│   ├── Core-Interfaces/
+│   │   ├── Collection-Interface.md
+│   │   └── Iterator.md
+│   ├── List/
+│   │   └── List-Interface.md
+│   ├── Set/
+│   │   └── TreeSet.md
+│   ├── Queue/
+│   │   └── (예정)
+│   ├── Map/
+│   │   └── (예정)
+│   └── images/
 ├── Design Pattern/
 │   ├── README.md
 │   ├── Singleton Pattern.md
@@ -236,9 +256,9 @@ Java-study/
 
 ## 📈 학습 진도
 
-- **완료된 주제**: 8개
+- **완료된 주제**: 12개
   - **Java 기초**: 4개 (Static/Instance 생명주기, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터)
-  - **Collections**: 2개 (TreeSet, Iterator)
+  - **Collections**: 6개 (JCF 개요, 계층화된 구조, Collection Interface, List Interface, TreeSet, Iterator)
   - **Design Pattern**: 2개 (Singleton Pattern, Facade Pattern)
 - **진행 예정**: 20+ 개 주제
 - **목표**: Java 백엔드 개발자로서 필수 개념 완전 정복
