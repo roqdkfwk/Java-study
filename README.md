@@ -25,6 +25,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 | **Collection Interface** | 인터페이스 | 모든 컬렉션의 공통 메서드를 정의하는 최상위 인터페이스  <br/>(add, remove, contains 등) | [📖 이동](./Collections/Core-Interfaces/Collection-Interface.md) |
 | **List Interface** | 인터페이스 | 순서가 있고 중복을 허용하는 컬렉션 인터페이스  <br/>(인덱스 기반 접근, 가변 크기) | [📖 이동](./Collections/List/List-Interface.md) |
 | **ArrayList** | List | 동적 배열 기반 List 구현체  <br/>(빠른 접근, 순차적 추가/삭제 우세) | [📖 이동](./Collections/List/ArrayList.md) |
+| **HashSet** | Set | 해시 테이블 기반 Set 구현체  <br/>(빠른 검색, 중복 제거, 순서 보장 안됨) | [📖 이동](./Collections/Set/HashSet.md) |
 | **TreeSet** | Set | 정렬된 순서로 요소를 저장하는 Set 구현체  <br/>(이진탐색트리 기반, 자동 정렬)        | [📖 이동](./Collections/Set/TreeSet.md)        |
 | **Iterator** | 인터페이스 | 컬렉션 순회를 위한 표준 인터페이스  <br/>(안전한 요소 제거, Fail-Fast 메커니즘)         | [📖 이동](./Collections/Core-Interfaces/Iterator.md) |
 
@@ -77,6 +78,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
   - [x] Collection Interface (공통 메서드)
   - [x] List Interface (순서가 있는 컬렉션)
   - [x] ArrayList (동적 배열 기반 List)
+  - [x] HashSet (해시 테이블 기반 Set)
   - [x] TreeSet (정렬된 Set)
   - [x] Iterator (컬렉션 순회 인터페이스)
   - [ ] 주요 구현체들 비교 및 선택 가이드
@@ -110,10 +112,11 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
   - [x] Collection Interface (공통 메서드)
   - [x] List Interface (순서가 있는 컬렉션)
   - [x] ArrayList (동적 배열 기반 List)
+  - [x] HashSet (해시 테이블 기반 Set)
   - [x] TreeSet (정렬된 Set)
   - [x] Iterator (컬렉션 순회 인터페이스)
   - [ ] **List 구현체들**: LinkedList, Vector, Stack
-  - [ ] **Set 구현체들**: HashSet, LinkedHashSet, EnumSet
+  - [ ] **Set 구현체들**: LinkedHashSet, EnumSet
   - [ ] **Queue 구현체들**: PriorityQueue, ArrayDeque
   - [ ] **Map 구현체들**: HashMap, LinkedHashMap, TreeMap, Hashtable
   - [ ] ListIterator와 Spliterator
@@ -239,6 +242,7 @@ Java-study/
 │   │   ├── List-Interface.md
 │   │   └── ArrayList.md
 │   ├── Set/
+│   │   ├── HashSet.md
 │   │   └── TreeSet.md
 │   ├── Queue/
 │   │   └── (예정)
@@ -262,9 +266,9 @@ Java-study/
 
 ## 📈 학습 진도
 
-- **완료된 주제**: 14개
+- **완료된 주제**: 15개
   - **Java 기초**: 5개 (Static/Instance 생명주기, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터, Boxing과 Unboxing)
-  - **Collections**: 7개 (JCF 개요, 계층화된 구조, Collection Interface, List Interface, ArrayList, TreeSet, Iterator)
+  - **Collections**: 8개 (JCF 개요, 계층화된 구조, Collection Interface, List Interface, ArrayList, HashSet, TreeSet, Iterator)
   - **Design Pattern**: 2개 (Singleton Pattern, Facade Pattern)
 - **진행 예정**: 20+ 개 주제
 - **목표**: Java 백엔드 개발자로서 필수 개념 완전 정복
