@@ -27,7 +27,7 @@
 
 ---
 
-ArrayList는 Java Collection Framework에서 가장 많이 사용되는 List 구현체로, 내부적으로 배열을 사용하여 동적 크기 조절이 가능한 리스트입니다.
+`ArrayList`는 Java Collection Framework에서 가장 많이 사용되는 List 구현체로, 내부적으로 배열을 사용하여 동적 크기 조절이 가능한 리스트입니다.
 
 ## 🏗️ 기본 구조
 
@@ -59,7 +59,7 @@ ArrayList는 Java Collection Framework에서 가장 많이 사용되는 List 구
 - **배열 복사 오버헤드**  
   용량 초과 시 전체 배열을 복사하는 방식으로 공간을 늘리므로 이 과정에서 지연이 발생
 - **메모리 사용량**  
-  객체 데이터로 인해 primitive 배열 대비 메모리 사용량 증가
+  객체 데이터로 인해 `primitive` 배열 대비 메모리 사용량 증가
 
 ## 📊 배열 vs ArrayList 비교
 
@@ -95,7 +95,7 @@ ArrayList는 Java Collection Framework에서 가장 많이 사용되는 List 구
 
 </div>
 
-### ⭐⭐⭐ **`ArrayList`의 접근 속도가 배열보다 느린 이유**
+### ⭐⭐⭐ **`ArrayList`의 접근 속도가 배열보다 느린 경우**
   
 `int[]`배열과 `ArrayList<Integer>`을 비교해보자.  
 
@@ -113,6 +113,9 @@ ArrayList는 Java Collection Framework에서 가장 많이 사용되는 List 구
 외에도 배열은 JVM이 직접 지원하는 연산(bytecode)를 사용하므로 매우 빠르지만  
 `ArrayList`에서는 `list.get(index)`라는 메서드를 호출해야 한다. 메서드 호출은 스택 프레임을 생성하는 등의 추가 작업이 필요하므로  
 배열의 직접 접근보다 오버헤드가 발생하고 이로 인해 미미하지만 성능의 차이가 발생하는 것이다.
+  
+하지만 배열에도 `primitive` 타입을 저장하는 것이 아니라 `reference` 타입을 저장하는 경우에는 `ArrayList`와 마찬가지로 주소 값을 저장하므로  
+실제 객체에 접근하는 데 비슷한 시간이 소요된다.
 
 </br>
 

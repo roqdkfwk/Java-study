@@ -30,7 +30,7 @@
 
 ---
 
-List Interface는 Collection Interface를 상속받는 인터페이스로, **순서가 있는 저장공간**을 제공하는 컬렉션을 구현하는데 사용합니다.
+`List Interface`는 Collection Interface를 상속받는 인터페이스로, **순서가 있는 저장공간**을 제공하는 컬렉션을 구현하는데 사용합니다.
 
 ## 🏗️ List 계층 구조
 
@@ -66,7 +66,7 @@ Collection
 
 ## 🔧 List Interface 주요 메서드
 
-List Interface는 Collection Interface의 모든 메서드를 상속받으며, 추가로 인덱스 기반 접근 메서드들을 제공한다.
+`List Interface`는 Collection Interface의 모든 메서드를 상속받으며, 추가로 인덱스 기반 접근 메서드들을 제공한다.
 
 ### ➕ 요소 추가
 | 메서드 | 설명 |
