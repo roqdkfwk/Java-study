@@ -10,6 +10,7 @@ Java 공부를 하자.
 | 주제명                                 | 분류      | 설명                                                         | 링크                                                                  |
 |-------------------------------------|---------|------------------------------------------------------------|---------------------------------------------------------------------|
 | **Static과 Instance  <br/>멤버의 생명주기** | 메모리  관리 | static과 instance 멤버의 메모리 로드/저장/해제 시점  <br/>및 JVM 메모리 영역 비교 | [📖 이동](./Java%20기초/메모리/Static과%20Instance%20멤버의%20생명주기.md)         |
+| **Garbage Collection과  <br/>객체의 생존** | 메모리 관리 | GC Roots와 도달 가능성 분석, Tri-Color Marking,  <br/>G1의 SATB·Write Barrier·Remembered Set, 메모리 누수 분석 | [📖 이동](./Java%20기초/메모리/Garbage%20Collection과%20객체의%20생존.md) |
 | **다형성**                             | 객체지향    | 하나의 메소드나 클래스가 다양한 방법으로 동작하는 개념  <br/>(오버로딩, 오버라이딩)         | [📖 이동](./Java%20기초/다형성.md)                                         |
 | **프레임워크  <br/> & 라이브러리**                 | 개념 정리   | 프레임워크와 라이브러리의 차이점과 역할, 사용 시기                               | [📖 이동](./Java%20기초/프레임워크%20(Framework)%20&%20라이브러리%20(Library).md) |
 | **필터와 인터셉터**                        | Spring  | Spring에서 공통 업무 처리를 위한 필터와 인터셉터의  <br/>개념과 차이점              | [📖 이동](./Java%20기초/필터와%20인터셉터.md)                                    |
@@ -57,7 +58,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 - [x] **메모리 관리**
   - [x] Static과 Instance 멤버의 생명주기
   - [ ] JVM 메모리 구조 심화
-  - [ ] 가비지 컬렉션 동작 원리
+  - [x] 가비지 컬렉션 동작 원리 (도달 가능성, G1 SATB)
 
 - [x] **객체지향 프로그래밍**
   - [x] 다형성 (오버로딩, 오버라이딩)
@@ -100,7 +101,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
 
 - [ ] **JVM** (Java Virtual Machine)
   - [ ] JVM 메모리 구조 (Heap, Stack, Method Area, PC Register)
-  - [ ] 가비지 컬렉션 (GC) 동작 원리와 알고리즘
+  - [x] 가비지 컬렉션 (GC) 동작 원리와 알고리즘
   - [ ] 클래스 로딩 과정 (Loading, Linking, Initialization)
   - [ ] JIT 컴파일러와 성능 최적화
   - [ ] JVM 튜닝과 메모리 분석
@@ -249,7 +250,8 @@ Java-study/
 │   ├── 필터와 인터셉터.md
 │   ├── Boxing과 Unboxing.md
 │   ├── 메모리/
-│   │   └── Static과 Instance 멤버의 생명주기.md
+│   │   ├── Static과 Instance 멤버의 생명주기.md
+│   │   └── Garbage Collection과 객체의 생존.md
 │   └── images/
 ├── Collections/
 │   ├── Java Collection Framework 개요.md
@@ -285,8 +287,8 @@ Java-study/
 
 ## 📈 학습 진도
 
-- **완료된 주제**: 15개
-  - **Java 기초**: 5개 (Static/Instance 생명주기, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터, Boxing과 Unboxing)
+- **완료된 주제**: 16개
+  - **Java 기초**: 6개 (Static/Instance 생명주기, Garbage Collection과 객체의 생존, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터, Boxing과 Unboxing)
   - **Collections**: 8개 (JCF 개요, 계층화된 구조, Collection Interface, List Interface, ArrayList, HashSet, TreeSet, Iterator)
   - **Design Pattern**: 2개 (Singleton Pattern, Facade Pattern)
 - **진행 예정**: 20+ 개 주제
@@ -294,5 +296,5 @@ Java-study/
 
 ---
 
-*마지막 업데이트: 2025년 1월*  
+*마지막 업데이트: 2026년 11월*  
 *작성자: Java 학습자*
