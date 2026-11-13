@@ -11,6 +11,7 @@ Java 공부를 하자.
 |-------------------------------------|---------|------------------------------------------------------------|---------------------------------------------------------------------|
 | **Static과 Instance  <br/>멤버의 생명주기** | 메모리  관리 | static과 instance 멤버의 메모리 로드/저장/해제 시점  <br/>및 JVM 메모리 영역 비교 | [📖 이동](./Java%20기초/메모리/Static과%20Instance%20멤버의%20생명주기.md)         |
 | **Garbage Collection과  <br/>객체의 생존** | 메모리 관리 | GC Roots와 도달 가능성 분석, Tri-Color Marking,  <br/>G1의 SATB·Write Barrier·Remembered Set, 메모리 누수 분석 | [📖 이동](./Java%20기초/메모리/Garbage%20Collection과%20객체의%20생존.md) |
+| **HotSpot 객체의  <br/>메모리 구조와 할당** | 메모리 관리 | 객체 헤더(Mark Word, Klass Pointer), Compressed Oops,  <br/>필드 정렬과 패딩, Compact Headers, TLAB | [📖 이동](./Java%20기초/메모리/HotSpot%20객체의%20메모리%20구조와%20할당.md) |
 | **다형성**                             | 객체지향    | 하나의 메소드나 클래스가 다양한 방법으로 동작하는 개념  <br/>(오버로딩, 오버라이딩)         | [📖 이동](./Java%20기초/다형성.md)                                         |
 | **프레임워크  <br/> & 라이브러리**                 | 개념 정리   | 프레임워크와 라이브러리의 차이점과 역할, 사용 시기                               | [📖 이동](./Java%20기초/프레임워크%20(Framework)%20&%20라이브러리%20(Library).md) |
 | **필터와 인터셉터**                        | Spring  | Spring에서 공통 업무 처리를 위한 필터와 인터셉터의  <br/>개념과 차이점              | [📖 이동](./Java%20기초/필터와%20인터셉터.md)                                    |
@@ -59,6 +60,7 @@ Java Collection Framework의 다양한 자료구조와 인터페이스
   - [x] Static과 Instance 멤버의 생명주기
   - [ ] JVM 메모리 구조 심화
   - [x] 가비지 컬렉션 동작 원리 (도달 가능성, G1 SATB)
+  - [x] HotSpot 객체의 메모리 구조와 할당 (객체 헤더, TLAB)
 
 - [x] **객체지향 프로그래밍**
   - [x] 다형성 (오버로딩, 오버라이딩)
@@ -251,7 +253,8 @@ Java-study/
 │   ├── Boxing과 Unboxing.md
 │   ├── 메모리/
 │   │   ├── Static과 Instance 멤버의 생명주기.md
-│   │   └── Garbage Collection과 객체의 생존.md
+│   │   ├── Garbage Collection과 객체의 생존.md
+│   │   └── HotSpot 객체의 메모리 구조와 할당.md
 │   └── images/
 ├── Collections/
 │   ├── Java Collection Framework 개요.md
@@ -287,8 +290,8 @@ Java-study/
 
 ## 📈 학습 진도
 
-- **완료된 주제**: 16개
-  - **Java 기초**: 6개 (Static/Instance 생명주기, Garbage Collection과 객체의 생존, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터, Boxing과 Unboxing)
+- **완료된 주제**: 17개
+  - **Java 기초**: 7개 (Static/Instance 생명주기, Garbage Collection과 객체의 생존, HotSpot 객체의 메모리 구조와 할당, 다형성, 프레임워크 vs 라이브러리, 필터와 인터셉터, Boxing과 Unboxing)
   - **Collections**: 8개 (JCF 개요, 계층화된 구조, Collection Interface, List Interface, ArrayList, HashSet, TreeSet, Iterator)
   - **Design Pattern**: 2개 (Singleton Pattern, Facade Pattern)
 - **진행 예정**: 20+ 개 주제
